@@ -21,37 +21,9 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Gradle
-/build/
-/RNTester/android/app/build/
-/RNTester/android/app/gradle/
-/RNTester/android/app/gradlew
-/RNTester/android/app/gradlew.bat
-/ReactAndroid/build/
-/ReactAndroid/gradle/
-/ReactAndroid/gradlew
-/ReactAndroid/gradlew.bat
-
-# Buck
-.buckd
-buck-out
-/ReactAndroid/src/main/jni/prebuilt/lib/
-/ReactAndroid/src/main/gen
-
-# Android Studio
-.project
-.settings
-.classpath
-
 # Watchman
 .watchmanconfig
 
-# Android
-.idea
-.gradle
-local.properties
-*.iml
-/android/
 
 # Node
 node_modules
@@ -64,7 +36,6 @@ package-lock.json
 .DS_Store
 
 # Test generated files
-/ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
 *.js.meta
 
 /coverage
@@ -102,6 +73,3 @@ RNTester/Pods/*
 # Visual studio
 .vscode
 .vs
-
-# Android memory profiler files
-*.hprof

@@ -1,12 +1,11 @@
 {
   "name": "react-native-sectioned-slider",
-  "title": "React Native Sectioned Slider",
+  "title": "An iOS 11 Control Center inspired Slider for React Native",
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
   "files": [
     "README.md",
-    "android",
     "index.js",
     "ios",
     "react-native-sectioned-slider.podspec"
