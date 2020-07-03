@@ -6,6 +6,12 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B80F371424AF2787002650AD /* SectionedSliderViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B80F371224AF2787002650AD /* SectionedSliderViewManager.m */; };
+		B80F371724AF27B4002650AD /* SectionedSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80F371624AF27B4002650AD /* SectionedSliderView.swift */; };
+		B80F371924AF282D002650AD /* SectionedSliderViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80F371824AF282D002650AD /* SectionedSliderViewManager.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libSectionedSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSectionedSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80F371224AF2787002650AD /* SectionedSliderViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionedSliderViewManager.m; sourceTree = "<group>"; };
+		B80F371524AF27B4002650AD /* SectionedSliderBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionedSliderBridge.h; sourceTree = "<group>"; };
+		B80F371624AF27B4002650AD /* SectionedSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedSliderView.swift; sourceTree = "<group>"; };
+		B80F371824AF282D002650AD /* SectionedSliderViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedSliderViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +54,11 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				B80F371224AF2787002650AD /* SectionedSliderViewManager.m */,
+				B80F371824AF282D002650AD /* SectionedSliderViewManager.swift */,
+				B80F371624AF27B4002650AD /* SectionedSliderView.swift */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				B80F371524AF27B4002650AD /* SectionedSliderBridge.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +93,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -105,6 +120,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80F371724AF27B4002650AD /* SectionedSliderView.swift in Sources */,
+				B80F371424AF2787002650AD /* SectionedSliderViewManager.m in Sources */,
+				B80F371924AF282D002650AD /* SectionedSliderViewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +185,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = SectionedSliderBridge.h;
 			};
 			name = Debug;
 		};
@@ -218,6 +237,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = SectionedSliderBridge.h;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -225,32 +245,41 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SectionedSlider;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SectionedSliderBridge.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = SectionedSlider;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = SectionedSliderBridge.h;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
