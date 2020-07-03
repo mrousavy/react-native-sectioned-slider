@@ -8,19 +8,23 @@
  * https://github.com/facebook/react-native
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import SectionedSlider from 'react-native-sectioned-slider';
 
 export default function App() {
+  const [selected, setSelected] = useState(2);
+
+  console.log(`Selected Section: ${selected}`);
   return (
     <View style={styles.container}>
       <SectionedSlider
         style={styles.slider}
         sections={10}
-        selectedSection={2}
+        selectedSection={selected}
         sliderColor="white"
         sliderBackgroundColor="grey"
+        onSelectedSectionChange={setSelected}
       />
     </View>
   );

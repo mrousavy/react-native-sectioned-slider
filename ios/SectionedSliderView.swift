@@ -16,12 +16,20 @@ let DEFAULT_SELECTED_SECTION = 2
 let DEFAULT_SLIDER_COLOR = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
 let DEFAULT_SLIDER_BACKGROUND_COLOR: UIColor? = nil
 
-class SectionedSliderView: UIView {
+class SectionedSliderView: UIView, SectionedSliderDelegate {
 	@objc var sections: NSNumber?
 	@objc var selectedSection: NSNumber?
 	@objc var sliderBackgroundColor: UIColor?
 	@objc var sliderColor: UIColor?
-	var slider: SectionedSlider
+	@objc var onSelectedSectionChange: RCTDirectEventBlock?
+	var slider: SectionedSlider {
+		willSet {
+			self.slider.delegate = nil
+		}
+		didSet {
+			self.slider.delegate = self
+		}
+	}
 	
 	override var bounds: CGRect {
 		didSet {
@@ -65,6 +73,14 @@ class SectionedSliderView: UIView {
 				sliderBackgroundColor: self.sliderBackgroundColor,
 				sliderColor: self.sliderColor))
 		self.addSubview(slider)
+	}
+	
+	
+	func sectionChanged(slider: SectionedSlider, selected: Int) {
+		print("\(LOG_ID) On changed with selected: \(selected) | handler: \(String(describing: self.onSelectedSectionChange))")
+		if self.onSelectedSectionChange != nil {
+			self.onSelectedSectionChange!(["selectedSection": selected])
+		}
 	}
 }
 
