@@ -13,13 +13,15 @@ import SectionedSlider
 let LOG_ID = "SectionedSliderView"
 let DEFAULT_SECTIONS = 10
 let DEFAULT_SELECTED_SECTION = 2
+let DEFAULT_SLIDER_COLOR = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+let DEFAULT_SLIDER_BACKGROUND_COLOR: UIColor? = nil
 
 class SectionedSliderView: UIView {
 	@objc var sections: NSNumber?
 	@objc var selectedSection: NSNumber?
-	@objc var height: NSNumber?
-	@objc var width: NSNumber?
-	let slider: SectionedSlider
+	@objc var sliderBackgroundColor: UIColor?
+	@objc var sliderColor: UIColor?
+	var slider: SectionedSlider
 	
 	override var bounds: CGRect {
 		didSet {
@@ -31,7 +33,6 @@ class SectionedSliderView: UIView {
 	override init(frame: CGRect) {
 		self.slider = SectionedSlider(frame: frame, selectedSection: DEFAULT_SELECTED_SECTION, sections: DEFAULT_SECTIONS)
 		super.init(frame: frame)
-		self.contentMode = .scaleToFill
 		self.addSubview(self.slider)
 	}
 
@@ -43,6 +44,25 @@ class SectionedSliderView: UIView {
 		print("\(LOG_ID): Properties changed! \(String(describing: changedProps))")
 		self.slider.sections = self.sections?.intValue ?? DEFAULT_SECTIONS
 		self.slider.selectedSection = self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION
+		if changedProps.contains("sliderBackgroundColor") || changedProps.contains("sliderColor") {
+			self.rebuildSlider()
+		}
+	}
+	
+	func rebuildSlider() {
+		self.subviews.forEach({ $0.removeFromSuperview() })
+		self.slider = SectionedSlider(
+			frame: self.bounds,
+			selectedSection: self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION,
+			sections: self.sections?.intValue ?? DEFAULT_SECTIONS,
+			palette: Palette(
+				viewBackgroundColor: UIColor(white: 0, alpha: 0.5),
+				sliderBackgroundColor: self.sliderBackgroundColor,
+				sliderColor: self.sliderColor))
+		print("\(LOG_ID) SliderColor: \(self.sliderColor)")
+		print("\(LOG_ID) SliderBackgroundColor: \(self.sliderBackgroundColor)")
+		self.slider.tintColor = UIColor(hex: "#ff0000")
+		self.addSubview(slider)
 	}
 }
 

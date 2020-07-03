@@ -19,6 +19,8 @@ export default function App() {
         style={styles.slider}
         sections={10}
         selectedSection={2}
+        sliderColor="darkgrey"
+        sliderBackgroundColor="grey"
       />
     </View>
   );

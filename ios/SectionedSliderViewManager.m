@@ -5,5 +5,7 @@
 
 RCT_EXPORT_VIEW_PROPERTY(sections, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(selectedSection, NSNumber)
+RCT_EXPORT_VIEW_PROPERTY(sliderBackgroundColor, UIColor)
+RCT_EXPORT_VIEW_PROPERTY(sliderColor, UIColor)
 
 @end
