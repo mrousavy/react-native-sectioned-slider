@@ -1,5 +1,5 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, requireNativeComponent } from 'react-native';
 
-const { SectionedSlider } = NativeModules;
+const SectionedSlider = requireNativeComponent("SectionedSliderView");
 
 export default SectionedSlider;

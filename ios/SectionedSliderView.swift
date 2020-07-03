@@ -17,13 +17,22 @@ let DEFAULT_SELECTED_SECTION = 2
 class SectionedSliderView: UIView {
 	@objc var sections: NSNumber?
 	@objc var selectedSection: NSNumber?
+	@objc var height: NSNumber?
+	@objc var width: NSNumber?
 	let slider: SectionedSlider
+	
+	override var bounds: CGRect {
+		didSet {
+			self.slider.frame = self.bounds
+			print("\(LOG_ID): Updated Slider.frame to \(self.bounds)")
+		}
+	}
 
 	override init(frame: CGRect) {
 		self.slider = SectionedSlider(frame: frame, selectedSection: DEFAULT_SELECTED_SECTION, sections: DEFAULT_SECTIONS)
 		super.init(frame: frame)
+		self.contentMode = .scaleToFill
 		self.addSubview(self.slider)
-		// TODO:
 	}
 
 	required init?(coder aDecoder: NSCoder) {

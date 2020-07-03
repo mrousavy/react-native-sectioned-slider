@@ -15,7 +15,11 @@ import SectionedSlider from 'react-native-sectioned-slider';
 export default function App() {
   return (
     <View style={styles.container}>
-      <SectionedSlider sections={10} selectedSection={2} />
+      <SectionedSlider
+        style={styles.slider}
+        sections={10}
+        selectedSection={2}
+      />
     </View>
   );
 }
@@ -26,5 +30,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  slider: {
+    backgroundColor: 'green',
+    width: 300,
+    height: 500,
   },
 });
