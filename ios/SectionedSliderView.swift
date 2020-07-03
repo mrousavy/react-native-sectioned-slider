@@ -42,13 +42,18 @@ class SectionedSliderView: UIView {
 
 	override func didSetProps(_ changedProps: [String]!) {
 		print("\(LOG_ID): Properties changed! \(String(describing: changedProps))")
-		self.slider.sections = self.sections?.intValue ?? DEFAULT_SECTIONS
-		self.slider.selectedSection = self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION
+		if changedProps.contains("sections") {
+			self.slider.sections = self.sections?.intValue ?? DEFAULT_SECTIONS
+		}
+		if changedProps.contains("selectedSection") {
+			self.slider.selectedSection = self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION
+		}
 		if changedProps.contains("sliderBackgroundColor") || changedProps.contains("sliderColor") {
 			self.rebuildSlider()
 		}
 	}
 	
+	// Required to change palette.
 	func rebuildSlider() {
 		self.subviews.forEach({ $0.removeFromSuperview() })
 		self.slider = SectionedSlider(
@@ -56,12 +61,9 @@ class SectionedSliderView: UIView {
 			selectedSection: self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION,
 			sections: self.sections?.intValue ?? DEFAULT_SECTIONS,
 			palette: Palette(
-				viewBackgroundColor: UIColor(white: 0, alpha: 0.5),
+				viewBackgroundColor: nil,
 				sliderBackgroundColor: self.sliderBackgroundColor,
 				sliderColor: self.sliderColor))
-		print("\(LOG_ID) SliderColor: \(self.sliderColor)")
-		print("\(LOG_ID) SliderBackgroundColor: \(self.sliderBackgroundColor)")
-		self.slider.tintColor = UIColor(hex: "#ff0000")
 		self.addSubview(slider)
 	}
 }
