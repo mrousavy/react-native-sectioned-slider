@@ -23,9 +23,6 @@ class SectionedSliderView: UIView, SectionedSliderDelegate {
 	@objc var sliderColor: UIColor?
 	@objc var onSelectedSectionChange: RCTDirectEventBlock?
 	var slider: SectionedSlider {
-		willSet {
-			self.slider.delegate = nil
-		}
 		didSet {
 			self.slider.delegate = self
 		}
@@ -35,6 +32,11 @@ class SectionedSliderView: UIView, SectionedSliderDelegate {
 		didSet {
 			self.slider.frame = self.bounds
 			print("\(LOG_ID): Updated Slider.frame to \(self.bounds)")
+		}
+	}
+	override var backgroundColor: UIColor? {
+		didSet {
+			self.rebuildSlider()
 		}
 	}
 
@@ -69,7 +71,7 @@ class SectionedSliderView: UIView, SectionedSliderDelegate {
 			selectedSection: self.selectedSection?.intValue ?? DEFAULT_SELECTED_SECTION,
 			sections: self.sections?.intValue ?? DEFAULT_SECTIONS,
 			palette: Palette(
-				viewBackgroundColor: nil,
+				viewBackgroundColor: self.backgroundColor,
 				sliderBackgroundColor: self.sliderBackgroundColor,
 				sliderColor: self.sliderColor))
 		self.addSubview(slider)
@@ -77,7 +79,6 @@ class SectionedSliderView: UIView, SectionedSliderDelegate {
 	
 	
 	func sectionChanged(slider: SectionedSlider, selected: Int) {
-		print("\(LOG_ID) On changed with selected: \(selected) | handler: \(String(describing: self.onSelectedSectionChange))")
 		if self.onSelectedSectionChange != nil {
 			self.onSelectedSectionChange!(["selectedSection": selected])
 		}

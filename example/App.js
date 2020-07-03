@@ -24,7 +24,7 @@ export default function App() {
         selectedSection={selected}
         sliderColor="white"
         sliderBackgroundColor="grey"
-        onSelectedSectionChange={(s) => console.log(s)}
+        onSelectedSectionChange={(s) => setSelected(s)}
       />
     </View>
   );
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
   },
   slider: {
-    backgroundColor: 'green',
+    backgroundColor: 'black',
     width: 300,
     height: 500,
   },
