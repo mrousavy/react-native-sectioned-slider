@@ -24,7 +24,7 @@ export default function App() {
         selectedSection={selected}
         sliderColor="white"
         sliderBackgroundColor="grey"
-        onSelectedSectionChange={setSelected}
+        onSelectedSectionChange={(s) => console.log(s)}
       />
     </View>
   );
