@@ -1,4 +1,4 @@
-#import "SectionedSlider.h"
+#import "SectionedSliderBridge.h"
 #import "React/RCTViewManager.h"
 
 @interface RCT_EXTERN_MODULE(SectionedSliderViewManager, RCTViewManager)
