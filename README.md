@@ -2,6 +2,8 @@
 
 An iOS 11 Control Center inspired Slider for **React Native** implemented natively using [LeonardoCardoso/SectionedSlider](https://github.com/LeonardoCardoso/SectionedSlider).
 
+:warning:: This is more of a proof of concept than a production-ready library, since styling a similarly-looking Slider is really easy using React Native and [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) and will be cross-platform. Feel free to [create a new issue](https://github.com/mrousavy/react-native-sectioned-slider/issues/new) if you have any questions about creating Native UI Modules using Swift.
+
 ## Install
 
 Install via [npm](npmjs.org/packages/react-native-sectioned-slider):
@@ -104,3 +106,11 @@ See the [example](example/) App for a full usage example.
 
 * iOS Sectioned Slider by https://github.com/LeonardoCardoso/SectionedSlider
 
+
+## Other
+
+Check out my other react-native libraries:
+
+* [react-native-blurhash](https://github.com/mrousavy/react-native-blurhash): 🖼️ Give your users the loading experience they want.
+* [react-native-google-nearby-messages](https://github.com/mrousavy/react-native-google-nearby-messages): 📲 Communicate with nearby devices using Bluetooth, BLE, WiFi and near-ultrasonic audio. Broadcast and receive small payloads (like strings) using the easy-to-use React Native API!
+* [react-native-notification-badge](https://github.com/mrousavy/react-native-notification-badge): 🔴 A notification badge count manager for React Native
